@@ -10,14 +10,9 @@ and open the template in the editor.
         <title>Chợ đồ cũ</title>
         <link href="css/css_index.css" rel="stylesheet" type="text/css"/>
         <script src="jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
-        <script>
-          $(document).ready( function(){//load body truoc
-          $(".menu-sub").hide();
-	  $(".menu").hover( function(){
-		$(this).find('div:first').next().slideToggle(200);
-	  });
-        });
-        </script>
+        <?php
+        include 'script/script_header.php';
+        ?>
     </head>
     <body>
         <div class="wrapper">
@@ -28,8 +23,7 @@ and open the template in the editor.
         <div class="select">
             <div class="croll">
                 <a href="#">Trang chủ ></a>
-                <a href="#">Điện tử ></a>
-                <a href="#">Điện thoại ></a>
+                <a href="#">Tất cả></a>
                 <span>Trang</span>
                 <a href="#">1</a>
                 <a href="#"><</a>
@@ -89,38 +83,6 @@ and open the template in the editor.
                     Ngày đăng: 21/11/2017
                     </div>
                 </a>
-                <a href="#">
-                    <img src="images/background.png" alt="" width="100px" height="100px"/>
-                    <div>
-                    Tên: Điện thoại cũ<br/>
-                    Giá: 3000,000 vnđ<br/>
-                    Sđt: 01628337724<br/>
-                    Địa chỉ: 29/60/129/trương định/hà nội<br/>
-                    Ngày đăng: 21/11/2017
-                    </div>
-                </a>
-                <a href="#">
-                    <img src="images/background.png" alt="" width="100px" height="100px"/>
-                    <div>
-                    Tên: Điện thoại cũ<br/>
-                    Giá: 3000,000 vnđ<br/>
-                    Sđt: 01628337724<br/>
-                    Địa chỉ: 29/60/129/trương định/hà nội<br/>
-                    Ngày đăng: 21/11/2017
-                    </div>
-                </a>
-                <a href="#">
-                    <img src="images/background.png" alt="" width="100px" height="100px"/>
-                    <div>
-                    Tên: Điện thoại cũ<br/>
-                    Giá: 3000,000 vnđ<br/>
-                    Sđt: 01628337724<br/>
-                    Địa chỉ: 29/60/129/trương định/hà nội<br/>
-                    Ngày đăng: 21/11/2017
-                    </div>
-                </a>
-                
-
         </div>
         </div>
         <div class="clear"></div>

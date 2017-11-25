@@ -45,7 +45,7 @@
     font-size: 13px;
     text-align: center;
     margin-top: 7px;
-    float: right;
+    float :right;
 }
 .form img{
     padding: 5px;
@@ -76,6 +76,6 @@ form .txt {
 #sub{
     width: 100px;
     height: 30px;
-    margin-left: 200px;
+    margin-left: 210px;
 }
 

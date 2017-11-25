@@ -8,6 +8,14 @@
     $type = array();
     $size = array();
     $img = array();
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
+    $time= date("Y-m-d h:i:sa");
+    if(!empty($_POST['khuvuc'])){
+        $khuvuc=$_POST['khuvuc'];
+    }
+    if(!empty($_POST['danhmuc'])){
+        $danhmuc=$_POST['danhmuc'];
+    }
     if(empty($_POST['tieude'])){
 	$error['tieude']="bạn cần nhập tiêu đề";    
     }
@@ -25,6 +33,12 @@
     }
     else{
         $gia=$_POST['gia'];   
+    }
+    if (empty($_POST['chitiet'])) {
+    $chitiet="";
+    }
+    else{
+    $chitiet="".htmlentities($_POST['chitiet']);
     }
     if(empty($_FILES['file']['tmp_name'])){
         $error['image']='bạn chưa chọn file ảnh';
@@ -45,25 +59,33 @@
     foreach ($_FILES['file']['size']as $file){
         $size[]=$file;
     }
+    //lấy id bài post hiện tại
+    
+    //lấy thông tin tên ảnh
     if(!empty($error)){
+    for($i=0;$i<4;$i++){
+        if(empty($name[$i])){
+            $img[$i]='';
+        }
+        else{
+            $img[$i]=basename($name[$i]);
+        }
+    }
+    $flag= insert_post('dinhnam','01628337724',$khuvuc, $danhmuc, $tieude, $diachi, $gia, $chitiet, $time, $img[0], $img[1], $img[2], $img[3]);
+    //nếu gửi lên db thành công thì upload ảnh lên sever
+    if($flag==true){
     for($i=0;$i<count($name);$i++){
+            $last_id = mysqli_insert_id($link);
             $target_dir='images-upload/';
             $target_file=$target_dir.basename($name[$i]);
-            $img[$i]=basename($name[$i]);
             if(move_uploaded_file($tmp_name[$i], $target_file)){
                 $flag=TRUE;
+                header("Location:detail.php?id=$last_id");
             }else{
                 $flag=FALSE;
                 $error['upload']='upload thất bại';
             }  
     }
-    if($flag==true){
-        for($i=0;$i<4;$i++){
-        if(empty($name[$i])){
-            $img[$i]='';
-        }
-        }
-        $flag= insert_post('dinhnam','01628337724','cả nước', 'tất cả', 'tất cả', $tieude, $diachi, $gia, '', '24/11/2017', $img[0], $img[1], $img[2], $img[3]);
     }
     }
     
@@ -77,33 +99,9 @@
         <link href="css/css_post.css" rel="stylesheet" type="text/css"/>
         <link href="css/css_index.css" rel="stylesheet" type="text/css"/>
         <script src="jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
-        <script>
-        $(document).ready( function(){
-          $(".menu-sub").hide();
-	  $(".menu").hover( function(){
-		$(this).find('div:first').next().slideToggle(200);
-	  });
-          
-          $("#input-image").change(function() {
-             $("#image1").hide();
-             $("#image2").hide();
-             $("#image3").hide();
-             $("#image4").hide();
-             var img=$("#image1");
-             for($i=0;$i<this.files.length;$i++){
-             var reader = new FileReader();
-             reader.onload = function(e) {
-              img.attr('src', e.target.result);
-              img.show();
-              img=img.next();
-             };
-             reader.readAsDataURL(this.files[$i]);
-             }
-          });
-    
-         
-        });
-        </script>
+        <?php
+        include 'script/script_post.php';
+        ?>
     </head>
     <body>
         <div class="wrapper">
@@ -111,6 +109,12 @@
             include 'module/header.php';
             ?>
             <div class="form">
+                <div class="select">
+            <div class="croll">
+                <a href="#">Trang chủ ></a>
+                <a href="#">Đăng tin</a>
+            </div>
+            </div>
                 <form  class="form" method="POST" enctype="multipart/form-data">
                     <div class="add-image">
                         <h4>THÊM HÌNH ẢNH (tối đa 4 hình)</h4>
@@ -124,46 +128,45 @@
                     <div class="add-detail">
                         <h4>THÊM THÔNG TIN</h4>
                         <div class="menu-select">
-                        <select>
-                        <option value="0">Cả nước</option>
-                        <option value="1">Hà nội</option>
-                        <option value="2">TP Hồ Chí Minh</option>
-                        <option value="4">Lạng sơn</option>
-                        <option value="4">Hải phòng</option>
-                        <option value="3">Thanh hóa</option>
-                        <option value="4">Nghệ an</option>
+                        <select name="khuvuc">
+                        <option value="cả nước">Cả nước</option>
+                        <option value="hà nội">Hà nội</option>
+                        <option value="sài gòn">Sài gòn</option>
+                        <option value="lạng sơn">Lạng sơn</option>
+                        <option value="hải phòng">Hải phòng</option>
+                        <option value="thanh hóa">Thanh hóa</option>
+                        <option value="nghệ an">Nghệ an</option>
                         </select>
                         </div>
                         <div class="text">Chọn khu vực</div>
                         <div class="menu-select">
-                        <select>
-                        <option value="0">Tất cả</option>
+                        <select name="danhmuc">
+                        <option value="tất cả">Tất cả</option>
                         <option value="" disabled="disabled">---Điện tử---------</option>
-                        <option value="1">#</option>
-                        <option value="2">#</option>
-                        <option value="3">#</option>
-                        <option value="4">#</option>
-                        <option value="5">#</option>
-                        <option value="6">#</option>
+                        <option value="điện thoại">điện thoại</option>
+                        <option value="máy tính bảng">máy tính bảng</option>
+                        <option value="laptop">laptop</option>
+                        <option value="máy tính để bàn">máy tính để bàn</option>
+                        <option value="loa, amply">loa,amply</option>
+                        <option value="phụ kiện, linh kiện">phụ kiện,linh kiện</option>
                         <option value="" disabled="disabled">---Xe cộ-----------</option>
-                        <option value="7">#</option>
-                        <option value="8">#</option>
-                        <option value="9">#</option>
-                        <option value="10">#</option>
-                        <option value="11">#</option>
-                        <option value="12">#</option>
+                        <option value="ô tô">ô tô</option>
+                        <option value="xe máy">xe máy</option>
+                        <option value="xe tải">xe tải</option>
+                        <option value="xe điện">xe điện</option>
+                        <option value="xe đạp">xe đạp</option>
+                        <option value="phụ tùng xe">phụ tùng xe</option>
                         <option value="" disabled="disabled">---Gia dụng--------</option>
-                        <option value="13">#</option>
-                        <option value="14">#</option>
-                        <option value="15">#</option>
-                        <option value="16">#</option>
-                        <option value="17">#</option>
+                        <option value="tivi, tủ lạnh, máy giặt">tivi, tủ lạnh, máy giặt</option>
+                        <option value="nội ngoại thất">nội ngoại thất</option>
+                        <option value="cây cảnh, thú cưng">cây cảnh, thú cưng</option>
+                        <option value="quần áo, giày dép">quần áo, giày dép</option>
+                        <option value="đồ gia dụng khác">đồ gia dụng khác</option>
                         <option value="" disabled="disabled">---Bất động sản----</option>
-                        <option value="18">#</option>
-                        <option value="19">#</option>
-                        <option value="20">#</option>
-                        <option value="21">#</option>
-                        <option value="22">#</option>
+                        <option value="căn hộ , chung cư">căn hộ , chung cư</option>
+                        <option value="đất">đất</option>
+                        <option value="văn phòng, mặt tiền">văn phòng, mặt tiền</option>
+                        <option value="nhà trọ">nhà trọ</option>
                         </select>
                         </div>
                         <div class="text">Chọn chuyên mục</div>
@@ -173,21 +176,22 @@
                         <?php form_error('diachi');?>
                         <input type="text" name="gia" class="txt" size="32" value="" placeholder="Giá sản phẩm"/><br />
                         <?php form_error('gia');?>
-                        <textarea name="chitiet" cols="66" rows="10" placeholder="Thêm chi tiết"></textarea><br>
+                        <textarea name="chitiet" cols="66" rows="10" placeholder="Thêm chi tiết" value=""></textarea><br>
                         <input id="sub" type="submit" name="submit"><br/>
+                        
                         <?php 
                         if(isset($flag)){
                             if($flag==true){
-                            echo "<span style=\"color: #FFF; margin-left: 200px;\">Đăng tin thành công</span><br/>";
+                            echo "<span style=\"color: #FFF; width: 100%; text-align: center;\">Đăng tin thành công</span><br/>";
                             
                             }
                             else{
-                            echo "<span style=\"color: #FFF; margin-left: 200px;\">Đăng tin thất bại</span><br/>";
+                            echo "<span style=\"color: #FFF; width: 100%; text-align: center;\">Đăng tin thất bại</span><br/>";
                             }
                         }
                         
                         ?>
-                        
+                       
                     </div>
                     
                 </form>
