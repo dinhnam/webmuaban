@@ -120,10 +120,10 @@
                         <h4>THÊM HÌNH ẢNH (tối đa 4 hình)</h4>
                         
                         <input id="input-image" type="file" name="file[]"  multiple="">
-                        <img id="image1" src="#"  width="230px" height="230px" style="float: left; display: none;"/>
-                        <img id="image2" src="#"  width="230px" height="230px" style="float: left; display: none;"/>
-                        <img id="image3" src="#"  width="230px" height="230px" style="float: left; display: none;"/>
-                        <img id="image4" src="#"  width="230px" height="230px" style="float: left; display: none;"/>
+                        <img id="image1" src="#"/>
+                        <img id="image2" src="#"/>
+                        <img id="image3" src="#"/>
+                        <img id="image4" src="#"/>
                     </div>
                     <div class="add-detail">
                         <h4>THÊM THÔNG TIN</h4>

@@ -1,14 +1,20 @@
 .form{
     width: 100%;
-    height: 550px;
+    height: 600px;
     background-color: #3e8e41;
 }
 .add-image{
     width: 480px;
-    height: 540px;
+    height: 550px;
     border: 2px solid #006600;
     float: left;
     
+}
+.add-image img{
+    width: 230px; 
+    height: 230px; 
+    float: left; 
+    display: none;
 }
 #input-image{
     border: 1px solid #006600;
@@ -23,7 +29,7 @@
 
 .add-detail{
     width: 510px;
-    height: 540px;
+    height: 550px;
     border: 2px solid #006600;
     float: right;
 }

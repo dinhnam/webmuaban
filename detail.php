@@ -1,5 +1,6 @@
 <?php
 include 'module/connect_sql.php';
+include 'module/resize_image.php';
 
 if( isset($_GET['id'])){
     $id_post=(int)$_GET['id'];
@@ -32,9 +33,40 @@ if( isset($_GET['id'])){
         <link href="css/css_index.css" rel="stylesheet" type="text/css"/>
         <link href="css/css_detail.css" rel="stylesheet" type="text/css"/>
         <script src="jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
-        <?php
-        include 'script/script_header.php';
-        ?>
+        <script>
+        $(document).ready( function(){
+          $(".menu-sub").hide();
+	  $(".menu").hover( function(){
+		$(this).find('div:first').next().slideToggle(200);
+	  });
+          $k=0;
+          $temp=0;
+          $('#id0').show();
+          $("#next").click( function(){
+               $temp=$k+1;
+               if($('#id'+$temp).length){
+                   $('.img_product').hide();
+                   $k=$k+1;
+                   if($k>3){
+                   $k=0;
+                   }
+                   $('#id'+$k).show();
+               }   
+	  });
+          $("#back").click( function(){
+               $temp=$k-1;
+               if($('#id'+$temp).length){
+                   $('.img_product').hide();
+                   $k=$k-1;
+                   if($k<0){
+                   $k=3;
+                   }
+                   $('#id'+$k).show();
+               }
+               
+	  });
+        });
+        </script>
     </head>
     <body>
         <div class="wrapper">
@@ -68,14 +100,17 @@ if( isset($_GET['id'])){
                 if( isset($img)){
                 for($i=0;$i<4;$i++){
                     if(strcmp($img[$i],'')){
-                       echo "<img src=\"images-upload/$img[$i]\"/>"; 
+                    echo "<img class=\"img_product\" id=\"id".$i."\"src=\"images-upload/$img[$i]\"".resize_img("images-upload/$img[$i]",400,400)."/>"; 
                     }
                 }
                 }
                 ?>
-                
-            </div> 
-            <div class="details">
+                <img  id='back' src="images/back.png" alt=""/>
+                <img  id='next' src="images/next.png" alt=""/>
+              
+            </div>
+            
+            <div class="details" >
                 <?php if( isset($row)){
                 ?>
                 <ul>
