@@ -76,7 +76,7 @@ if( isset($_GET['id'])){
         <div class="detail">
             <div class="select">
             <div class="croll">
-                <a href="#">Trang chủ ></a>
+                <a href="index.php">Trang chủ ></a>
                 <a href="#">
                     <?php
                     if( isset($row)){

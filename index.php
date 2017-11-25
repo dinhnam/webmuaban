@@ -1,5 +1,10 @@
 <?php
 include 'module/connect_sql.php';
+$sql="SELECT * FROM post ORDER BY id DESC limit 0,15";//ORDER BY 'str' DESC
+$result= mysqli_query($link, $sql);
+if(!$result){
+    $error=die("Lỗi: ". mysqli_error($link));
+}
 
 ?>
 <html>
@@ -20,7 +25,7 @@ include 'module/connect_sql.php';
         <div class="content">
         <div class="select">
             <div class="croll">
-                <a href="#">Trang chủ ></a>
+                <a href="index.php">Trang chủ ></a>
                 <a href="#">Tất cả></a>
                 <span>Trang</span>
                 <a href="#">1</a>
@@ -71,16 +76,24 @@ include 'module/connect_sql.php';
             
         </div>
         <div class="list-product">
-                <a href="#">
-                    <img src="images/background.png" alt="" width="100px" height="100px"/>
-                    <div>
-                    Tên: Điện thoại cũ<br/>
-                    Giá: 3000,000 vnđ<br/>
-                    Sđt: 01628337724<br/>
-                    Địa chỉ: 29/60/129/trương định/hà nội<br/>
-                    Ngày đăng: 21/11/2017
+            <?php
+            if(mysqli_num_rows($result)>0){
+            while($row= mysqli_fetch_assoc($result)){
+            ?>
+            <a href="detail.php?id=<?php echo $row['id']; ?>">
+                    <img src="images-upload/<?php echo $row['anh1'];?> " width="100px" height="100px"/>
+                    <div class="chitiet">
+                    <?php echo substr($row['tieude'],0,100);?><br/>
+                    Giá: <?php echo substr($row['gia'],0,15);?>đ<br/>
+                    Sđt: <?php echo substr($row['sdt'],0,12);?><br/>
+                    Địa chỉ: <?php echo substr($row['diachi'],0,100);?><br/>
+                    Ngày đăng: <?php echo substr($row['ngaydang'],0,10);?>
                     </div>
-                </a>
+            </a>
+            <?php
+            }
+            }
+            ?>
         </div>
         </div>
         <div class="clear"></div>
