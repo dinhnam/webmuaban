@@ -1,6 +1,7 @@
 <?php
    include 'module/connect_sql.php';
    include 'module/insert.php';
+    
    if($_SERVER['REQUEST_METHOD']=='POST'){
     $error = array();
     $name = array();
@@ -59,8 +60,11 @@
     foreach ($_FILES['file']['size']as $file){
         $size[]=$file;
     }
-    //lấy id bài post hiện tại
-    
+    //lấy id bài post sau cùng 
+    $sql='SELECT * FROM post WHERE id=(SELECT MAX(id) FROM post)';
+    $res= mysqli_query($link, $sql);
+    $row= mysqli_fetch_assoc($res);
+    $id_img=$row['id']+1;
     //lấy thông tin tên ảnh
     if(!empty($error)){
     for($i=0;$i<4;$i++){
@@ -68,16 +72,18 @@
             $img[$i]='';
         }
         else{
-            $img[$i]=basename($name[$i]);
+            //$img[$i]=basename($name[$i]);
+            $img[$i]="$id_img".basename($name[$i]);
         }
     }
     $flag= insert_post('dinhnam','01628337724',$khuvuc, $danhmuc, $tieude, $diachi, $gia, $chitiet, $time, $img[0], $img[1], $img[2], $img[3]);
     //nếu gửi lên db thành công thì upload ảnh lên sever
     if($flag==true){
     for($i=0;$i<count($name);$i++){
-            $last_id = mysqli_insert_id($link);
-            $target_dir='images-upload/';
-            $target_file=$target_dir.basename($name[$i]);
+            $last_id = mysqli_insert_id($link);//lấy id của bài post
+            $target_dir="images-upload/";
+            //$target_file=$target_dir.basename($name[$i]);
+            $target_file=$target_dir.$id_img.basename($name[$i]);
             if(move_uploaded_file($tmp_name[$i], $target_file)){
                 $flag=TRUE;
                 header("Location:detail.php?id=$last_id");

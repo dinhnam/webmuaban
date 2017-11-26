@@ -1,6 +1,6 @@
 <?php
 include 'module/connect_sql.php';
-$sql="SELECT * FROM post ORDER BY id DESC limit 0,15";//ORDER BY 'str' DESC
+$sql="SELECT * FROM post ORDER BY id DESC limit 0,20";//ORDER BY 'str' DESC
 $result= mysqli_query($link, $sql);
 if(!$result){
     $error=die("Lỗi: ". mysqli_error($link));
@@ -81,13 +81,12 @@ if(!$result){
             while($row= mysqli_fetch_assoc($result)){
             ?>
             <a href="detail.php?id=<?php echo $row['id']; ?>">
-                    <img src="images-upload/<?php echo $row['anh1'];?> " width="100px" height="100px"/>
-                    <div class="chitiet">
-                    <?php echo substr($row['tieude'],0,100);?><br/>
+                    <img src="images-upload/<?php echo $row['anh1'];?> " width="237px" height="237px"/>
+                    <div class="title">
+                    <?php echo substr($row['tieude'],0,42);?><br/>
                     Giá: <?php echo substr($row['gia'],0,15);?>đ<br/>
-                    Sđt: <?php echo substr($row['sdt'],0,12);?><br/>
-                    Địa chỉ: <?php echo substr($row['diachi'],0,100);?><br/>
-                    Ngày đăng: <?php echo substr($row['ngaydang'],0,10);?>
+                    Địa chỉ: <?php echo substr($row['diachi'],0,35);?><br/>
+                    Từ: <?php echo substr($row['ngaydang'],0,22);?>
                     </div>
             </a>
             <?php

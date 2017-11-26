@@ -114,26 +114,26 @@ if( isset($_GET['id'])){
                 <?php if( isset($row)){
                 ?>
                 <ul>
-                    <li>
-                        Tiêu đề: <?php echo $tieude; ?>
+                    <li style="font-size: 22px; font-weight: bold;">
+                        <?php echo $tieude; ?>
+                    </li>
+                    <li style="color: #9c3328;">
+                        <span>Giá bán: </span> <?php echo $gia; ?>
                     </li>
                     <li>
-                        Giá bán: <?php echo $gia; ?>
+                        <span>Tên người bán: </span><?php echo $name; ?>
                     </li>
                     <li>
-                        Tên người đăng: <?php echo $name; ?>
+                       <span> SĐT liên hệ: </span><?php echo $sdt; ?>
                     </li>
                     <li>
-                        Số điện thoại người bán: <?php echo $sdt; ?>
+                        <span>Địa chỉ giao dịch: </span><?php echo $diachi; ?>
                     </li>
                     <li>
-                        Địa chỉ giao dịch: <?php echo $diachi; ?>
+                       <span> Ngày đăng: </span><?php echo $ngaydang; ?>
                     </li>
                     <li>
-                        Ngày đăng tin: <?php echo $ngaydang; ?>
-                    </li>
-                    <li>
-                        Chi tiết sản phẩm: <?php echo $chitiet; ?>
+                        <?php echo $chitiet; ?>
                     </li>
                     
                 </ul>
@@ -142,9 +142,7 @@ if( isset($_GET['id'])){
                 ?>
             </div>
         </div>
-        <div class="footer">
-            <span>Coppyright 2017</span>
-        </div>
+        
         </div>
     </body>
 </html>
