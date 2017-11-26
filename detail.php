@@ -133,7 +133,10 @@ if( isset($_GET['id'])){
                        <span> Ngày đăng: </span><?php echo $ngaydang; ?>
                     </li>
                     <li>
-                        <?php echo $chitiet; ?>
+                        <?php 
+                        $comment= nl2br($chitiet,FALSE);
+                        echo $comment; 
+                        ?>
                     </li>
                     
                 </ul>
@@ -142,7 +145,9 @@ if( isset($_GET['id'])){
                 ?>
             </div>
         </div>
-        
+        <div class="footer">
+            <span>Coppyright 2017</span>
+        </div>
         </div>
     </body>
 </html>

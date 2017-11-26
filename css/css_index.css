@@ -1,8 +1,8 @@
 
 .wrapper{
     width:1200px;
-    height:100%;
-    margin:auto;
+    height:auto;
+    margin: auto;
 }
 .header{
     width: 100%;
@@ -188,7 +188,7 @@
 }
 .list-product a:hover, .xtlab-ctmenu-item:focus {
     border: 1px solid #DCD800;
-    border: 1px solid #DCD800;
+    
 }
 .list-product a {
     width: 238px;
