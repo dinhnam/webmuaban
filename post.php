@@ -124,7 +124,6 @@
                 <form  class="form" method="POST" enctype="multipart/form-data">
                     <div class="add-image">
                         <h4>THÊM HÌNH ẢNH (tối đa 4 hình)</h4>
-                        
                         <input id="input-image" type="file" name="file[]"  multiple="">
                         <img id="image1" src="#"/>
                         <img id="image2" src="#"/>
@@ -152,8 +151,8 @@
                         <option value="điện thoại">điện thoại</option>
                         <option value="máy tính bảng">máy tính bảng</option>
                         <option value="laptop">laptop</option>
-                        <option value="máy tính để bàn">máy tính để bàn</option>
-                        <option value="loa, amply">loa,amply</option>
+                        <option value="máy tính bàn">máy tính để bàn</option>
+                        <option value="loa,amply">loa,amply</option>
                         <option value="phụ kiện, linh kiện">phụ kiện,linh kiện</option>
                         <option value="" disabled="disabled">---Xe cộ-----------</option>
                         <option value="ô tô">ô tô</option>
@@ -163,13 +162,13 @@
                         <option value="xe đạp">xe đạp</option>
                         <option value="phụ tùng xe">phụ tùng xe</option>
                         <option value="" disabled="disabled">---Gia dụng--------</option>
-                        <option value="tivi, tủ lạnh, máy giặt">tivi, tủ lạnh, máy giặt</option>
-                        <option value="nội ngoại thất">nội ngoại thất</option>
+                        <option value="tivi, tủ lạnh">tivi, tủ lạnh, máy giặt</option>
+                        <option value="nội, ngoại thất">nội, ngoại thất</option>
                         <option value="cây cảnh, thú cưng">cây cảnh, thú cưng</option>
                         <option value="quần áo, giày dép">quần áo, giày dép</option>
                         <option value="đồ gia dụng khác">đồ gia dụng khác</option>
                         <option value="" disabled="disabled">---Bất động sản----</option>
-                        <option value="căn hộ , chung cư">căn hộ , chung cư</option>
+                        <option value="căn hộ, chung cư">căn hộ , chung cư</option>
                         <option value="đất">đất</option>
                         <option value="văn phòng, mặt tiền">văn phòng, mặt tiền</option>
                         <option value="nhà trọ">nhà trọ</option>
@@ -182,8 +181,8 @@
                         <?php form_error('diachi');?>
                         <input type="text" name="gia" class="txt" size="32" value="" placeholder="Giá sản phẩm"/><br />
                         <?php form_error('gia');?>
-                        <textarea name="chitiet" cols="66" rows="10" placeholder="Thêm chi tiết" value=""></textarea><br>
-                        <input id="sub" type="submit" name="submit"><br/>
+                        <textarea name="chitiet" cols="66" rows="20" placeholder="Thêm chi tiết" value=""></textarea><br>
+                        <input id="sub" type="submit" name="submit" value="ĐĂNG TIN"><br/>
                         
                         <?php 
                         if(isset($flag)){

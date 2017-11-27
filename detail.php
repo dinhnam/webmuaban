@@ -76,8 +76,8 @@ if( isset($_GET['id'])){
         <div class="detail">
             <div class="select">
             <div class="croll">
-                <a href="index.php">Trang chủ ></a>
-                <a href="#">
+                <a href="index.php?danhmuc=tất cả">Trang chủ ></a>
+                <a href="index.php?danhmuc=<?php echo $danhmuc?>">
                     <?php
                     if( isset($row)){
                         echo "$danhmuc>";

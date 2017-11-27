@@ -1,18 +1,18 @@
 <div class="header">
             <div id="logo">
-            <a href="index.php">
+            <a href="index.php?danhmuc=tất cả">
                 <img src="images/logo-icon.png" width="100px" height="50px"/>  
             </a>
             </div>
             <div class="menu">
                 <div class="menu-item">Điện tử</div>
                 <div class="menu-sub">
-                <a href="index.php?danhmuc=dienthoai">Điện thoại</a>
-                <a href="index.php?danhmuc=maytinhbang">Máy tính bảng</a>
+                <a href="index.php?danhmuc=điện thoại">Điện thoại</a>
+                <a href="index.php?danhmuc=máy tính bảng">Máy tính bảng</a>
                 <a href="index.php?danhmuc=laptop">Laptop</a>
-                <a href="index.php?danhmuc=maytinhban">Máy tính để bàn</a>
+                <a href="index.php?danhmuc=máy tính bàn">Máy tính để bàn</a>
                 <a href="index.php?danhmuc=loa,amply">loa, amply</a>
-                <a href="index.php?danhmuc=phukien,linhkien">phụ kiện, linh kiện</a>
+                <a href="index.php?danhmuc=phụ kiện,linh kiện">phụ kiện, linh kiện</a>
                 </div>
             </div>
             <div class="menu">
@@ -45,17 +45,21 @@
                 <a href="index.php?danhmuc=nhatro">Nhà trọ</a>
                 </div>
             </div>
-            <div id="search">
-                 <form class="search_form" method="GET" action="index.php">
-                     <input type="text" name="search" id="search"  value="" placeholder="Tìm kiếm ..." >
-                     <input type="submit" name="search" value="" style="background: url('images/Search.png') no-repeat;" />
-                 </form>
+            
+            
+            <div class="menu-2" style="float: right;">
+                <a href="#">Đăng nhập/ Đăng kí</a>
             </div>
-            <div class="menu-2">
+            <div class="menu-2" style="float: right;">
                 <a href="post.php">Đăng tin</a>
             </div>
-            <div class="menu-2">
-                <a href="#">Đăng nhập/ Đăng kí</a>
+            <div id="search" style="float: right;">
+                 <form class="search_form" method="GET" action="index.php">
+                     
+                     <input type="submit" name="search" value="" style="background: url('images/Search.png') no-repeat;" />
+                     <input type="text" name="search" id="search"  value="" placeholder="Tìm kiếm ..." >
+                     
+                 </form>
             </div>
             
          
