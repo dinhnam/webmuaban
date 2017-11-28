@@ -1,7 +1,7 @@
 <div class="header">
             <div id="logo">
             <a href="index.php?danhmuc=tất cả">
-                <img src="images/logo-icon.png" width="100px" height="50px"/>  
+                <img src="images/logo-icon.ico" width="100px" height="50px"/>  
             </a>
             </div>
             <div class="menu">
@@ -53,14 +53,7 @@
             <div class="menu-2" style="float: right;">
                 <a href="post.php">Đăng tin</a>
             </div>
-            <div id="search" style="float: right;">
-                 <form class="search_form" method="GET" action="index.php">
-                     
-                     <input type="submit" name="search" value="" style="background: url('images/Search.png') no-repeat;" />
-                     <input type="text" name="search" id="search"  value="" placeholder="Tìm kiếm ..." >
-                     
-                 </form>
-            </div>
+            
             
          
  </div>
