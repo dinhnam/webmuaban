@@ -18,31 +18,31 @@
             <div class="menu">
                 <div class="menu-item">Gia dụng</div>
                 <div class="menu-sub">
-                <a href="index.php?danhmuc=tivi,tulanh,maygiat">Tivi, tủ lạnh, máy giặt</a>
-                <a href="index.php?danhmuc=noingoaithat">Nội ngoại thất</a>
-                <a href="index.php?danhmuc=caycanh,thucung">Cây cảnh, thú cưng</a>
-                <a href="index.php?danhmuc=quanao,giaydep">Quần áo, giày dép</a>
-                <a href="index.php?danhmuc=dogiadungkhac">Đồ gia dụng khác</a>
+                <a href="index.php?danhmuc=tivi,tủ lạnh">Tivi, tủ lạnh, máy giặt</a>
+                <a href="index.php?danhmuc=nội, ngoại thất">Nội ngoại thất</a>
+                <a href="index.php?danhmuc=cây cảnh, thú cưng">Cây cảnh, thú cưng</a>
+                <a href="index.php?danhmuc=quần áo, giày dép">Quần áo, giày dép</a>
+                <a href="index.php?danhmuc=đồ gia dụng khác">Đồ gia dụng khác</a>
                 </div>
             </div>
             <div class="menu">
                 <div class="menu-item">Xe cộ</div>
                 <div class="menu-sub">
-                <a href="index.php?danhmuc=oto">Ô tô</a>
-                <a href="index.php?danhmuc=xemay">Xe máy</a>
-                <a href="index.php?danhmuc=xetai">Xe tải</a>
-                <a href="index.php?danhmuc=xedien">Xe điện</a>
-                <a href="index.php?danhmuc=xedap">Xe đạp</a>
-                <a href="index.php?danhmuc=phutungxe">Phụ tùng xe</a>
+                <a href="index.php?danhmuc=ô tô">Ô tô</a>
+                <a href="index.php?danhmuc=xe máy">Xe máy</a>
+                <a href="index.php?danhmuc=xe tải">Xe tải</a>
+                <a href="index.php?danhmuc=xe điện">Xe điện</a>
+                <a href="index.php?danhmuc=xe đạp">Xe đạp</a>
+                <a href="index.php?danhmuc=phụ tùng xe">Phụ tùng xe</a>
                 </div>
             </div>
             <div class="menu">
                 <div class="menu-item">Bất động sản</div>
                 <div class="menu-sub">
-                <a href="index.php?danhmuc=canho,chungcu">Căn hộ, chung cư</a>
-                <a href="index.php?danhmuc=dat">Đất</a>
-                <a href="index.php?danhmuc=vanphong,mattien">Văn phòng, mặt tiền</a>
-                <a href="index.php?danhmuc=nhatro">Nhà trọ</a>
+                <a href="index.php?danhmuc=căn hộ, chung cư">Căn hộ, chung cư</a>
+                <a href="index.php?danhmuc=đất">Đất</a>
+                <a href="index.php?danhmuc=văn phòng, mặt tiền">Văn phòng, mặt tiền</a>
+                <a href="index.php?danhmuc=nhà trọ">Nhà trọ</a>
                 </div>
             </div>
             

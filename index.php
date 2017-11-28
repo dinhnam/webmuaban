@@ -1,19 +1,37 @@
 <?php
 include 'module/connect_sql.php';
-
 $count=10;
+$query_seach="SELECT * FROM post ORDER BY id DESC";
 if( isset($_GET['danhmuc'])){
     $danhmuc=(string)$_GET['danhmuc'];
-    if(strcmp($danhmuc,"tất cả")){
-    $query_seach="SELECT * FROM post WHERE  danhmuc LIKE '%$danhmuc%' ORDER BY id DESC";
-    }
-    else{   
-    $query_seach="SELECT * FROM post ORDER BY id DESC";
-    }
+    //$query_seach="SELECT * FROM post WHERE  danhmuc LIKE '%$danhmuc%' ORDER BY id DESC";
+    //$query_seach="SELECT * FROM post ORDER BY id DESC";
 }
 else{
     $danhmuc="tất cả";
-    $query_seach="SELECT * FROM post ORDER BY id DESC";
+    //$query_seach="SELECT * FROM post ORDER BY id DESC";
+}
+if( isset($_GET['khuvuc'])){
+    $khuvuc=(string)$_GET['khuvuc'];
+}
+else{
+    $khuvuc="hà nội";
+}
+if( isset($_GET['trang'])){
+    $trang=(int)$_GET['trang'];
+}
+else{
+    $trang=1;
+}
+if( strcmp($danhmuc,"tất cả")){
+    $query_seach="SELECT * FROM post  WHERE danhmuc LIKE '%$danhmuc%' ORDER BY id DESC";
+    if(strcmp($khuvuc,"hà nội")){
+    $query_seach="SELECT * FROM post  WHERE danhmuc LIKE '%$danhmuc%' and khuvuc LIKE '%$khuvuc%' ORDER BY id DESC";
+    }
+}else{
+    if(strcmp($khuvuc,"hà nội")){
+    $query_seach="SELECT * FROM post WHERE khuvuc LIKE '%$khuvuc%' ORDER BY id DESC";
+    }
 }
 
 if($res=mysqli_query($link, $query_seach)){
@@ -25,13 +43,6 @@ if($res=mysqli_query($link, $query_seach)){
     else{
         $num_page=1;
     }
-}
-
-if( isset($_GET['trang'])){
-    $trang=(int)$_GET['trang'];
-}
-else{
-    $trang=1;
 }
  $start_page=($trang-1)*$count;
  $query= $query_seach." limit $start_page , $count";
@@ -52,8 +63,7 @@ else{
           $('select').on('change', function (e) {
           var optionSelected = $("option:selected", this);
           var valueSelected = this.value;
-          
-          
+          window.location=""+valueSelected;
           });
           });
         </script>
@@ -99,13 +109,28 @@ else{
             </div>
             <div class="menu-select">
                 <select id="select_2">
-                <option value="toàn quốc">Toàn quốc</option>
-                <option value="hà nội">Hà nội</option>
-                <option value="sài gòn">TP Hồ Chí Minh</option>
-                <option value="lạng sơn">Lạng sơn</option>
-                <option value="hải phòng">Hải phòng</option>
-                <option value="thanh hóa">Thanh hóa</option>
-                <option value="nghệ an">Nghệ an</option>
+                <option <?php echo "value=\"index.php?danhmuc=$danhmuc&khuvuc=hà nội\""; if(isset($khuvuc)&&$khuvuc=="hà nội"){echo" selected='selected'";}?>>Hà nội</option>
+                <option <?php echo "value=\"index.php?danhmuc=$danhmuc&khuvuc=quận hoàn kiếm\""; if(isset($khuvuc)&&$khuvuc=="quận hoàn kiếm"){echo" selected='selected'";}?>>quận hoàn kiếm</option>
+                <option <?php echo "value=\"index.php?danhmuc=$danhmuc&khuvuc=quận ba đình\""; if(isset($khuvuc)&&$khuvuc=="quận ba đình"){echo" selected='selected'";}?>>quận ba đình</option>
+                <option <?php echo "value=\"index.php?danhmuc=$danhmuc&khuvuc=quận đống đa\""; if(isset($khuvuc)&&$khuvuc=="quận đống đa"){echo" selected='selected'";}?>>quận đống đa</option>
+                <option <?php echo "value=\"index.php?danhmuc=$danhmuc&khuvuc=quận hai bà trưng\""; if(isset($khuvuc)&&$khuvuc=="quận hai bà trưng"){echo" selected='selected'";}?>>quận hai bà trưng</option>
+                <option <?php echo "value=\"index.php?danhmuc=$danhmuc&khuvuc=quận thanh xuân\""; if(isset($khuvuc)&&$khuvuc=="quận thanh xuân"){echo" selected='selected'";}?>>quận thanh xuân</option>
+                <option <?php echo "value=\"index.php?danhmuc=$danhmuc&khuvuc=quận cầu giấy\""; if(isset($khuvuc)&&$khuvuc=="quận cầu giấy"){echo" selected='selected'";}?>>quận cầu giấy</option>
+                <option <?php echo "value=\"index.php?danhmuc=$danhmuc&khuvuc=quận hoàng mai\""; if(isset($khuvuc)&&$khuvuc=="quận hoàng mai"){echo" selected='selected'";}?>>quận hoàng mai</option>
+                <option <?php echo "value=\"index.php?danhmuc=$danhmuc&khuvuc=quận long biên\""; if(isset($khuvuc)&&$khuvuc=="quận long biên"){echo" selected='selected'";}?>>quận long biên</option>
+                <option <?php echo "value=\"index.php?danhmuc=$danhmuc&khuvuc=quận tây hồ\""; if(isset($khuvuc)&&$khuvuc=="quận tây hồ"){echo" selected='selected'";}?>>quận tây hồ</option>
+                <option >huyện đông anh</option>
+                <option >huyện sóc sơn</option>
+                <option >huyện thanh trì</option>
+                <option >quận hà đông</option>
+                <option >thị xã sơn tây</option>
+                <option >huyện đan phượng</option>
+                <option >huyện quốc oai</option>
+                <option >huyện thạch thất</option>
+                <option >huyện chương mỹ</option>
+                <option >huyện thường tín</option>
+                <option >huyện phú xuyên</option>
+                
                 </select>
             </div>
             
@@ -118,9 +143,9 @@ else{
             <a href="detail.php?id=<?php echo $row['id']; ?>">
                     <img src="images-upload/<?php echo $row['anh1'];?> " width="237px" height="237px"/>
                     <div class="title">
-                    <?php echo substr($row['tieude'],0,38);?><br/>
+                    <?php echo substr($row['tieude'],0,34);?><br/>
                     Giá: <?php echo substr($row['gia'],0,15);?>đ<br/>
-                    Địa chỉ: <?php echo substr($row['diachi'],0,34);?><br/>
+                    <?php echo substr($row['diachi'],0,35);?><br/>
                     Từ: <?php echo substr($row['ngaydang'],0,22);?>
                     </div>
             </a>

@@ -33,7 +33,7 @@
 	$error['gia']="bạn cần nhập giá bán";    
     }
     else{
-        $gia=$_POST['gia'];   
+        $gia=(int)$_POST['gia'];   
     }
     if (empty($_POST['chitiet'])) {
     $chitiet="";
@@ -72,7 +72,6 @@
             $img[$i]='';
         }
         else{
-            //$img[$i]=basename($name[$i]);
             $img[$i]="$id_img".basename($name[$i]);
         }
     }
@@ -134,13 +133,27 @@
                         <h4>THÊM THÔNG TIN</h4>
                         <div class="menu-select">
                         <select name="khuvuc">
-                        <option value="cả nước">Cả nước</option>
-                        <option value="hà nội">Hà nội</option>
-                        <option value="sài gòn">Sài gòn</option>
-                        <option value="lạng sơn">Lạng sơn</option>
-                        <option value="hải phòng">Hải phòng</option>
-                        <option value="thanh hóa">Thanh hóa</option>
-                        <option value="nghệ an">Nghệ an</option>
+                        <option value="hà nội">>>Hà nội<<</option>
+                        <option value="quận hoàn kiếm">quận hoàn kiếm</option>
+                        <option value="quận ba đình">quận ba đình</option>
+                        <option value="quận đống đa">quận đống đa</option>
+                        <option value="quận hai bà trưng">quận hai bà trưng</option>
+                        <option value="quận thanh xuân">quận thanh xuân</option>
+                        <option value="quận cầu giấy">quận cầu giấy</option>
+                        <option value="quận hoàng mai">quận hoàng mai</option>
+                        <option value="quận long biên">quận long biên</option>
+                        <option value="quận tây hồ">quận tây hồ</option>
+                        <option value="huyện đông anh">huyện đông anh</option>
+                        <option value="huyện sóc sơn">huyện sóc sơn</option>
+                        <option value="huyện thanh trì">huyện thanh trì</option>
+                        <option value="quận hà đông">quận hà đông</option>
+                        <option value="thị xã sơn tây">thị xã sơn tây</option>
+                        <option value="huyện đan phượng">huyện đan phượng</option>
+                        <option value="huyện quốc oai">huyện quốc oai</option>
+                        <option value="huyện thạch thất">huyện thạch thất</option>
+                        <option value="huyện chương mỹ">huyện chương mỹ</option>
+                        <option value="huyện thường tín">huyện thường tín</option>
+                        <option value="huyện phú xuyên">huyện phú xuyên</option>
                         </select>
                         </div>
                         <div class="text">Chọn khu vực</div>
@@ -179,7 +192,7 @@
                         <?php form_error('tieude');?>
                         <input type="text" name="diachi" class="txt" size="32" value="" placeholder="Địa chỉ giao dịch"/><br />
                         <?php form_error('diachi');?>
-                        <input type="text" name="gia" class="txt" size="32" value="" placeholder="Giá sản phẩm"/><br />
+                        <input type="number" name="gia" class="txt" placeholder="giá sản phẩm ( vnđ )">
                         <?php form_error('gia');?>
                         <textarea name="chitiet" cols="66" rows="20" placeholder="Thêm chi tiết" value=""></textarea><br>
                         <input id="sub" type="submit" name="submit" value="ĐĂNG TIN"><br/>

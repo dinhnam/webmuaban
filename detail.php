@@ -118,7 +118,7 @@ if( isset($_GET['id'])){
                         <?php echo $tieude; ?>
                     </li>
                     <li style="color: #9c3328;">
-                        <span>Giá bán: </span> <?php echo $gia; ?>
+                        <span>Giá bán: </span> <?php echo $gia." vnđ"; ?>
                     </li>
                     <li>
                         <span>Tên người bán: </span><?php echo $name; ?>
@@ -133,6 +133,9 @@ if( isset($_GET['id'])){
                        <span> Ngày đăng: </span><?php echo $ngaydang; ?>
                     </li>
                     <li>
+                       ---------------------------------------------------
+                    </li>
+                    <li style="font-size: 14px;">
                         <?php 
                         $comment= nl2br($chitiet,FALSE);
                         echo $comment; 
