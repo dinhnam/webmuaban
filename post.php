@@ -143,17 +143,7 @@
                         <option value="quận hoàng mai">quận hoàng mai</option>
                         <option value="quận long biên">quận long biên</option>
                         <option value="quận tây hồ">quận tây hồ</option>
-                        <option value="huyện đông anh">huyện đông anh</option>
-                        <option value="huyện sóc sơn">huyện sóc sơn</option>
-                        <option value="huyện thanh trì">huyện thanh trì</option>
                         <option value="quận hà đông">quận hà đông</option>
-                        <option value="thị xã sơn tây">thị xã sơn tây</option>
-                        <option value="huyện đan phượng">huyện đan phượng</option>
-                        <option value="huyện quốc oai">huyện quốc oai</option>
-                        <option value="huyện thạch thất">huyện thạch thất</option>
-                        <option value="huyện chương mỹ">huyện chương mỹ</option>
-                        <option value="huyện thường tín">huyện thường tín</option>
-                        <option value="huyện phú xuyên">huyện phú xuyên</option>
                         </select>
                         </div>
                         <div class="text">Chọn khu vực</div>
