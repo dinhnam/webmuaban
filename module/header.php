@@ -49,7 +49,11 @@
                 <?php
                 if (isset($_SESSION['username']) && $_SESSION['username']){
                 ?>
-                <div class="menu-item" style=" color: blue;"><?php echo $_SESSION['sdt'];?></div>
+                <div class="menu-item" style=" color: blue; padding: 0px;">
+                   
+                    <img src="images/user.png" alt="" width="45px" height="45px"/>
+                     <?php echo $_SESSION['sdt'];?>
+                </div>
                 <div class="menu-sub">
                 <a href="profile.php">Hồ sơ</a>
                 <a href="logout.php">Đăng xuất</a>
@@ -64,7 +68,7 @@
                 ?>
             </div>
             
-            <div class="menu-2" style="float: right;">
+            <div class="menu-2" style="float: right;margin-right: 10px;">
                 <a href="post.php">Đăng tin</a>
             </div>
             

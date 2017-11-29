@@ -86,7 +86,19 @@
 	    else{
             //xử lý lỗi 	
 	    }
-        
+   }
+   if( isset($_GET['id'])&&isset($_GET['delete'])){
+       if($_GET['id']==$id_user){
+           $post_id=$_GET['delete'];
+           $query_delete = "DELETE FROM post WHERE id='$post_id' and sdt=$sdt" ;
+           if(!mysqli_query($link, $query_delete)){
+            die('lỗi truy cập sql<br/>'. mysqli_error($link));
+           }
+           else{
+               header("Location:profile.php");
+           }
+           
+       }
    }
    
 ?>
@@ -154,7 +166,7 @@
                     Từ: <?php echo substr($row['ngaydang'],0,22);?>
                     </div>
             </a>
-                <a class='xoa' href="profile.php?delete=<?php echo $row['id'];?>"> Xóa</a>
+                <a class='xoa' href="profile.php?id=<?php echo $id_user; ?>&delete=<?php echo $row['id'];?>"> Xóa</a>
             </div>
             <?php
             }
