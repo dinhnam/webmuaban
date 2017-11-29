@@ -45,11 +45,25 @@
                 <a href="index.php?danhmuc=nhà trọ">Nhà trọ</a>
                 </div>
             </div>
-            
-            
-            <div class="menu-2" style="float: right;">
-                <a href="login.php">Đăng nhập/ Đăng kí</a>
+            <div class="menu" style="float: right;">
+                <?php
+                if (isset($_SESSION['username']) && $_SESSION['username']){
+                ?>
+                <div class="menu-item" style=" color: blue;"><?php echo $_SESSION['sdt'];?></div>
+                <div class="menu-sub">
+                <a href="#">Hồ sơ</a>
+                <a href="logout.php">Đăng xuất</a>
+                </div>
+                <?php
+                }
+                else{
+                ?>
+                <a href="login.php"><div class="menu-item">Đăng nhập/Đăng kí</div></a>
+                <?php
+                }
+                ?>
             </div>
+            
             <div class="menu-2" style="float: right;">
                 <a href="post.php">Đăng tin</a>
             </div>

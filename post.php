@@ -1,7 +1,13 @@
 <?php
+   session_start();
+   if (isset($_SESSION['username']) && $_SESSION['username']){
+   }
+   else{
+       header("Location:login.php");
+   }
    include 'module/connect_sql.php';
    include 'module/insert.php';
-    
+   
    if($_SERVER['REQUEST_METHOD']=='POST'){
     $error = array();
     $name = array();
@@ -75,7 +81,7 @@
             $img[$i]="$id_img".basename($name[$i]);
         }
     }
-    $flag= insert_post('dinhnam','01628337724',$khuvuc, $danhmuc, $tieude, $diachi, $gia, $chitiet, $time, $img[0], $img[1], $img[2], $img[3]);
+    $flag= insert_post($_SESSION['username'],$_SESSION['sdt'],$khuvuc, $danhmuc, $tieude, $diachi, $gia, $chitiet, $time, $img[0], $img[1], $img[2], $img[3]);
     //nếu gửi lên db thành công thì upload ảnh lên sever
     if($flag==true){
     for($i=0;$i<count($name);$i++){

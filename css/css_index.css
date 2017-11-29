@@ -217,6 +217,7 @@
     width: 21px;
     height: 21px;
     float: right;
+    border: 1px solid #3e8e41;
 }
 
 .search_form img:hover{

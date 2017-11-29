@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'module/connect_sql.php';
 include 'module/resize_image.php';
 
