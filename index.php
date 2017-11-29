@@ -183,7 +183,7 @@ if($res=mysqli_query($link, $query_seach)){
             while($row= mysqli_fetch_assoc($result)){
             ?>
             <a href="detail.php?id=<?php echo $row['id']; ?>">
-                    <img src="images-upload/<?php echo $row['anh1'];?> " width="237px" height="237px"/>
+                    <img src="images-upload/<?php echo $row['anh1'];?> " width="234px" height="234px"/>
                     <div class="title">
                     <?php echo substr($row['tieude'],0,34);?><br/>
                     Giá: <?php echo substr($row['gia'],0,15);?>đ<br/>
