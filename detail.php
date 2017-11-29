@@ -108,7 +108,7 @@ if( isset($_GET['id'])){
                 if( isset($img)){
                 for($i=0;$i<4;$i++){
                     if(strcmp($img[$i],'')){
-                    echo "<img class=\"img_product\" id=\"id".$i."\"src=\"images-upload/$img[$i]\"".resize_img("images-upload/$img[$i]",400,400)."/>"; 
+                    echo "<img class=\"img_product\" id=\"id".$i."\"src=\"images-upload/$img[$i]\"".resize_img("images-upload/$img[$i]",500,500)."/>"; 
                     }
                 }
                 }
@@ -156,9 +156,7 @@ if( isset($_GET['id'])){
                 ?>
             </div>
         </div>
-        <div class="footer">
-            <span>Coppyright 2017</span>
-        </div>
+        
         </div>
     </body>
 </html>
