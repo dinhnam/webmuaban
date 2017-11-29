@@ -51,7 +51,7 @@
                 ?>
                 <div class="menu-item" style=" color: blue;"><?php echo $_SESSION['sdt'];?></div>
                 <div class="menu-sub">
-                <a href="#">Hồ sơ</a>
+                <a href="profile.php">Hồ sơ</a>
                 <a href="logout.php">Đăng xuất</a>
                 </div>
                 <?php

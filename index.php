@@ -176,7 +176,7 @@ if($res=mysqli_query($link, $query_seach)){
             
             
         </div>
-            <div class="status" style="width: 100%;height: 20px;font-size: 13px;float: left; background-color: #FFF">tìm thấy <?php echo $num;?> hàng đang được rao bán</div>
+         <div class="status" style="width: 100%;height: 20px;font-size: 13px;float: left; background-color: #FFF">tìm thấy <?php echo $num;?> hàng đang được rao bán</div>
         <div class="list-product">
             <?php
             if(mysqli_num_rows($result)>0){
