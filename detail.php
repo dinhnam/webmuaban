@@ -114,7 +114,7 @@ if( isset($_GET['id'])){
                 <?php if( isset($row)){
                 ?>
                 <ul>
-                    <li style="font-size: 22px; font-weight: bold;">
+                    <li style="font-size: 22px; ">
                         <?php echo $tieude; ?>
                     </li>
                     <li style="color: #9c3328;">

@@ -18,7 +18,7 @@
             <div class="menu">
                 <div class="menu-item">Gia dụng</div>
                 <div class="menu-sub">
-                <a href="index.php?danhmuc=tivi,tủ lạnh">Tivi, tủ lạnh, máy giặt</a>
+                <a href="index.php?danhmuc=tivi, tủ lạnh">Tivi, tủ lạnh, máy giặt</a>
                 <a href="index.php?danhmuc=nội, ngoại thất">Nội ngoại thất</a>
                 <a href="index.php?danhmuc=cây cảnh, thú cưng">Cây cảnh, thú cưng</a>
                 <a href="index.php?danhmuc=quần áo, giày dép">Quần áo, giày dép</a>

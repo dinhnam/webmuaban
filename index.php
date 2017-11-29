@@ -153,17 +153,17 @@ if($res=mysqli_query($link, $query_seach)){
             </div>
             <div class="menu-select">
                 <select id="select_2">
-                <option <?php echo "value=\"".local($danhmuc,"",$loc,$trang,$search)."\""; if(isset($khuvuc)&&$khuvuc=="hà nội"){echo" selected='selected'";}?>>Hà nội</option>
-                <option <?php echo "value=\"".local($danhmuc,"quận hoàn kiếm",$loc,$trang,$search)."\""; if(isset($khuvuc)&&$khuvuc=="quận hoàn kiếm"){echo" selected='selected'";}?>>quận hoàn kiếm</option>
-                <option <?php echo "value=\"".local($danhmuc,"quận ba đình",$loc,$trang,$search)."\""; if(isset($khuvuc)&&$khuvuc=="quận ba đình"){echo" selected='selected'";}?>>quận ba đình</option>
-                <option <?php echo "value=\"".local($danhmuc,"quận đống đa",$loc,$trang,$search)."\""; if(isset($khuvuc)&&$khuvuc=="quận đống đa"){echo" selected='selected'";}?>>quận đống đa</option>
-                <option <?php echo "value=\"".local($danhmuc,"quận hai bà trưng",$loc,$trang,$search)."\""; if(isset($khuvuc)&&$khuvuc=="quận hai bà trưng"){echo" selected='selected'";}?>>quận hai bà trưng</option>
-                <option <?php echo "value=\"".local($danhmuc,"quận thanh xuân",$loc,$trang,$search)."\"";if(isset($khuvuc)&&$khuvuc=="quận thanh xuân"){echo" selected='selected'";}?>>quận thanh xuân</option>
-                <option <?php echo "value=\"".local($danhmuc,"quận cầu giấy",$loc,$trang,$search)."\""; if(isset($khuvuc)&&$khuvuc=="quận cầu giấy"){echo" selected='selected'";}?>>quận cầu giấy</option>
-                <option <?php echo "value=\"".local($danhmuc,"quận hoàng mai",$loc,$trang,$search)."\""; if(isset($khuvuc)&&$khuvuc=="quận hoàng mai"){echo" selected='selected'";}?>>quận hoàng mai</option>
-                <option <?php echo "value=\"".local($danhmuc,"quận long biên",$loc,$trang,$search)."\""; if(isset($khuvuc)&&$khuvuc=="quận long biên"){echo" selected='selected'";}?>>quận long biên</option>
-                <option <?php echo "value=\"".local($danhmuc,"quận tây hồ",$loc,$trang,$search)."\""; if(isset($khuvuc)&&$khuvuc=="quận tây hồ"){echo" selected='selected'";}?>>quận tây hồ</option>
-                <option <?php echo "value=\"".local($danhmuc,"quận hà đông",$loc,$trang,$search)."\""; if(isset($khuvuc)&&$khuvuc=="quận hà đông"){echo" selected='selected'";}?>>quận hà đông</option>
+                <option <?php echo "value=\"".local($danhmuc,"",$loc,1,$search)."\""; if(isset($khuvuc)&&$khuvuc=="hà nội"){echo" selected='selected'";}?>>Hà nội</option>
+                <option <?php echo "value=\"".local($danhmuc,"quận hoàn kiếm",$loc,1,$search)."\""; if(isset($khuvuc)&&$khuvuc=="quận hoàn kiếm"){echo" selected='selected'";}?>>quận hoàn kiếm</option>
+                <option <?php echo "value=\"".local($danhmuc,"quận ba đình",$loc,1,$search)."\""; if(isset($khuvuc)&&$khuvuc=="quận ba đình"){echo" selected='selected'";}?>>quận ba đình</option>
+                <option <?php echo "value=\"".local($danhmuc,"quận đống đa",$loc,1,$search)."\""; if(isset($khuvuc)&&$khuvuc=="quận đống đa"){echo" selected='selected'";}?>>quận đống đa</option>
+                <option <?php echo "value=\"".local($danhmuc,"quận hai bà trưng",$loc,1,$search)."\""; if(isset($khuvuc)&&$khuvuc=="quận hai bà trưng"){echo" selected='selected'";}?>>quận hai bà trưng</option>
+                <option <?php echo "value=\"".local($danhmuc,"quận thanh xuân",$loc,1,$search)."\"";if(isset($khuvuc)&&$khuvuc=="quận thanh xuân"){echo" selected='selected'";}?>>quận thanh xuân</option>
+                <option <?php echo "value=\"".local($danhmuc,"quận cầu giấy",$loc,1,$search)."\""; if(isset($khuvuc)&&$khuvuc=="quận cầu giấy"){echo" selected='selected'";}?>>quận cầu giấy</option>
+                <option <?php echo "value=\"".local($danhmuc,"quận hoàng mai",$loc,1,$search)."\""; if(isset($khuvuc)&&$khuvuc=="quận hoàng mai"){echo" selected='selected'";}?>>quận hoàng mai</option>
+                <option <?php echo "value=\"".local($danhmuc,"quận long biên",$loc,1,$search)."\""; if(isset($khuvuc)&&$khuvuc=="quận long biên"){echo" selected='selected'";}?>>quận long biên</option>
+                <option <?php echo "value=\"".local($danhmuc,"quận tây hồ",$loc,1,$search)."\""; if(isset($khuvuc)&&$khuvuc=="quận tây hồ"){echo" selected='selected'";}?>>quận tây hồ</option>
+                <option <?php echo "value=\"".local($danhmuc,"quận hà đông",$loc,1,$search)."\""; if(isset($khuvuc)&&$khuvuc=="quận hà đông"){echo" selected='selected'";}?>>quận hà đông</option>
                 </select>
             </div>
             <div class="search_form">
