@@ -1,12 +1,26 @@
 <?php
    session_start();
    include 'module/connect_sql.php';
+   function update_user($new_ten,$new_sdt,$new_matkhau,$id_user){
+       global $link;
+       global $error;
+       
+       $query_update="UPDATE user SET ten='$new_ten',sdt='$new_sdt', matkhau='$new_matkhau' WHERE id=$id_user";
+       if(!mysqli_query($link, $query_update)){
+       $error['update']="lỗi cập nhật";
+       return FALSE;
+       }
+       else{
+       return TRUE;
+       }    
+   }
    function form_error($label_field) {
     global $error;
     if (isset($error[$label_field])) {
         echo "<label style=\"color: red; \">{$error[$label_field]}</label><br/>";
     }
    } 
+   
    if (isset($_SESSION['sdt']) && $_SESSION['sdt']){
        $sdt=$_SESSION['sdt'];
        $ten=$_SESSION['username'];
@@ -14,13 +28,67 @@
        $res=mysqli_query($link, $query);
        $row= mysqli_fetch_assoc($res);
        $matkhau=$row['matkhau'];
+       $id_user=$row['id'];
        $query_seach="SELECT * FROM post  WHERE sdt LIKE '%$sdt%'"; 
        $result=mysqli_query($link, $query_seach);
        
    }
    else{
-       header("Location:login.php");
+       header("Location:logout.php");
    }
+   if($_SERVER['REQUEST_METHOD']=="POST"){
+	
+	$error=array();
+        
+            if(empty($_POST['name'])){
+		$error['name_reg']="bạn cần nhập username";
+	    }
+	    else{
+            $new_name=$_POST['name'];
+	    }
+        
+            if(empty($_POST['sdt'])){
+               $error['sdt']="bạn cần nhập số điện thoại";
+	    }
+	    else{
+            
+            if($sdt!=$_POST['sdt']){
+            $temp=$_POST['sdt'];
+            $query_seach="SELECT * FROM user WHERE sdt LIKE '%$temp%'";
+            if($res=mysqli_query($link, $query_seach)){
+            $num= mysqli_num_rows($res);
+             if($num>0){
+               $error['sdt']="số điện thoại đã có người đăng kí";
+             }
+             else{
+                 $new_sdt=$_POST['sdt'];
+             }
+             }
+             }
+             else{
+                $new_sdt=$_POST['sdt']; 
+             }
+            }
+        
+	    if(empty($_POST['pass'])){
+		$error['pass']="bạn cần nhập password";
+	    }
+	    else{
+               $new_pass=$_POST['pass'];
+            }
+            
+	    if(empty($error)){
+		if(update_user($new_name, $new_sdt, $new_pass, $id_user)==true){
+                    header("Location:logout.php");
+                };
+                
+	    }
+	    else{
+            //xử lý lỗi 	
+	    }
+        
+   }
+   
 ?>
 <html>
     <head>
@@ -50,19 +118,19 @@
             </div>
             </div>
             <div class='profile'>
-            <form id="sign_up" action="login.php" method="post">
+                <form id="sign_up" action="profile.php" method="post">
                     <h5>Thông tin tài khoản</h5>
                     <label>Tên</label><br>
-                    <input type="text" name="name_reg" class="txt" size="32" value="<?php echo $ten;?>"/><br />
-                    <?php form_error('name_reg');?>
+                    <input type="text" name="name" class="txt" size="32" value="<?php echo $ten;?>"/><br />
+                    <?php form_error('name');?>
                     <label>số điện thoại</label><br>
-                    <input type="text" name="sdt_reg" class="txt" size="32" value="<?php echo $sdt;?>"/><br />
-                    <?php form_error('sdt_reg');?>
+                    <input type="text" name="sdt" class="txt" size="32" value="<?php echo $sdt;?>"/><br />
+                    <?php form_error('sdt');?>
                     <label>mật khẩu</label><br>
-                    <input type="password" name="pass_reg" class="txt" size="32" value="<?php echo $matkhau;?>"/><br />
-                    <?php form_error('pass_reg');?>
-                    <input  class="submit" type="submit" name="submit_reg" value="cập nhập" /><br />
-                    <?php form_error('capnhat'); 
+                    <input type="password" name="pass" class="txt" size="32" value="<?php echo $matkhau;?>"/><br />
+                    <?php form_error('pass');?>
+                    <input  class="submit" type="submit" name="update" value="cập nhập" /><br />
+                    <?php form_error('update'); 
                     if(!empty($flag)){
                         if($flag==TRUE){
                              echo "<label style=\"color: blue; \">bạn đã cập nhật thành công</label><br/>";

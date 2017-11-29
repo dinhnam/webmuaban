@@ -8,13 +8,13 @@ function insert_user($ten,$sdt,$matkhau){
        if($res=mysqli_query($link, $query_seach)){
        $num= mysqli_num_rows($res);
        if($num>0){
-        $error['dangki']="số điện thoại đã có người đăng kí";
+        $error['sdt_reg']="số điện thoại đã có người đăng kí";
         return FALSE;
        }
        else{
        $insert="INSERT INTO user(ten,sdt,matkhau) VALUE ('$ten','$sdt','$matkhau')";
        if(!mysqli_query($link, $insert)){
-          die('lỗi truy cập sql<br/>'. mysqli_error($link));
+          $error['dangki']="lỗi đăng kí, vui lòng thử lại";
        return FALSE;
        }
        else{
@@ -153,6 +153,13 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
                 <form id="sign_up" action="login.php" method="post">
                     <label style="font-size: 12px; color: red;">nếu bạn chưa có tài khoản hãy đăng kí</label>
                     <h4>ĐĂNG KÍ</h4>
+                    <?php
+                    if(!empty($flag)){
+                        if($flag==TRUE){
+                             echo "<label style=\"color: blue; \">bạn đã đăng kí thành công</label><br/>";
+                        }
+                    }
+                    ?>
                     <label>Tên</label><br>
                     <input type="text" name="name_reg" class="txt" size="32" value=""/><br />
                     <?php form_error('name_reg');?>
@@ -163,13 +170,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
                     <input type="password" name="pass_reg" class="txt" size="32" value=""/><br />
                     <?php form_error('pass_reg');?>
                     <input  class="submit" type="submit" name="submit_reg" value="Đăng kí" /><br />
-                    <?php form_error('dangki'); 
-                    if(!empty($flag)){
-                        if($flag==TRUE){
-                             echo "<label style=\"color: blue; \">bạn đã đăng kí thành công</label><br/>";
-                        }
-                    }
-                    ?>
+                    <?php form_error('dangki'); ?>
                 </form>
             </div>
         </div>
