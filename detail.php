@@ -65,6 +65,13 @@ if( isset($_GET['id'])){
                }
                
 	  });
+          $(window).scroll(function(){
+		if($(window).scrollTop() - $(".image").position().top < 0){
+		$('.image').css({'position':'relative'});
+		}else{
+		$('.image').css({'position':'fixed'});
+		}
+	  });
         });
         </script>
     </head>

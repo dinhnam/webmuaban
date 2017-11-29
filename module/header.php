@@ -48,7 +48,7 @@
             
             
             <div class="menu-2" style="float: right;">
-                <a href="#">Đăng nhập/ Đăng kí</a>
+                <a href="login.php">Đăng nhập/ Đăng kí</a>
             </div>
             <div class="menu-2" style="float: right;">
                 <a href="post.php">Đăng tin</a>
