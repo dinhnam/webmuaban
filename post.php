@@ -47,10 +47,11 @@
     else{
     $chitiet="".htmlentities($_POST['chitiet']);
     }
+   
+    
     if(empty($_FILES['file']['tmp_name'])){
         $error['image']='bạn chưa chọn file ảnh';
     }
-    
     foreach ($_FILES['file']['name']as $file){
         $name[]=$file;
     }
@@ -58,7 +59,7 @@
         $tmp_name[]=$file;
     } 
     foreach ($_FILES['file']['error']as $file){
-        $error[]=$file;
+        $error_file[]=$file;
     } 
     foreach ($_FILES['file']['type']as $file){
         $type[]=$file;
@@ -66,13 +67,14 @@
     foreach ($_FILES['file']['size']as $file){
         $size[]=$file;
     }
+    
     //lấy id bài post sau cùng 
     $sql='SELECT * FROM post WHERE id=(SELECT MAX(id) FROM post)';
     $res= mysqli_query($link, $sql);
     $row= mysqli_fetch_assoc($res);
     $id_img=$row['id']+1;
     //lấy thông tin tên ảnh
-    if(!empty($error)){
+    if(empty($error)){
     for($i=0;$i<4;$i++){
         if(empty($name[$i])){
             $img[$i]='';
@@ -152,7 +154,8 @@
                 <form  class="form" method="POST" enctype="multipart/form-data">
                     <div class="add-image">
                         <h4>THÊM HÌNH ẢNH (tối đa 4 hình)</h4>
-                        <input id="input-image" type="file" name="file[]"  multiple="">
+                        <input id="input-image" type="file" name="file[]"  multiple=""><br/>
+                        
                         <img id="image1" src="#"/>
                         <img id="image2" src="#"/>
                         <img id="image3" src="#"/>
@@ -213,7 +216,7 @@
                         <?php form_error('diachi');?>
                         <input type="number" name="gia" class="txt" placeholder="giá sản phẩm ( vnđ )">
                         <?php form_error('gia');?>
-                        <textarea name="chitiet" cols="66" rows="20" placeholder="Thêm chi tiết" value=""></textarea><br>
+                        <textarea name="chitiet" cols="66" rows="15" placeholder="Thêm chi tiết" value=""></textarea><br>
                         <input id="sub" type="submit" name="submit" value="ĐĂNG TIN"><br/>
                         
                         <?php 

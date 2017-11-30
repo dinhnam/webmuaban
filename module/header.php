@@ -12,7 +12,7 @@
                 <a href="index.php?danhmuc=laptop">Laptop</a>
                 <a href="index.php?danhmuc=máy tính bàn">Máy tính để bàn</a>
                 <a href="index.php?danhmuc=loa,amply">loa, amply</a>
-                <a href="index.php?danhmuc=phụ kiện,linh kiện">phụ kiện, linh kiện</a>
+                <a href="index.php?danhmuc=phụ kiện, linh kiện">phụ kiện, linh kiện</a>
                 </div>
             </div>
             <div class="menu">
