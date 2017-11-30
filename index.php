@@ -170,7 +170,7 @@ if($res=mysqli_query($link, $query_seach)){
                 </select>
             </div>
             <div class="search_form">
-                <img id="img_search" src="images/Search.png" alt="<?php echo local($danhmuc, $khuvuc, $loc, $trang,"");?>"/>
+                <img id="img_search" src="images/Search.png" alt="<?php echo local($danhmuc, $khuvuc, $loc, 1,"");?>"/>
                 <input type="text" name="search" id="search"  <?php if($search!=""){echo "value=\"$search\"";}?>" placeholder="Tìm kiếm ..." >
             </div>    
             

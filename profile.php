@@ -150,7 +150,7 @@
                     }
                     ?>
             </form>   
-            <h5>Mặt hàng đã đăng bán</h5>
+            <h5>Hàng đã đăng bán</h5>
             <div class="list">
             <?php
             if(mysqli_num_rows($result)>0){
