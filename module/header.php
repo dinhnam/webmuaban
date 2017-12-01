@@ -1,7 +1,7 @@
 <div class="header">
             <div id="logo">
             <a href="index.php?danhmuc=tất cả">
-                <img src="images/logo.png" width="200px" height="50px"/>  
+                <img src="images/logo.png" width="170px" height="40px"/>  
             </a>
             </div>
             <div class="menu">

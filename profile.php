@@ -29,7 +29,7 @@
        $row= mysqli_fetch_assoc($res);
        $matkhau=$row['matkhau'];
        $id_user=$row['id'];
-       $query_seach="SELECT * FROM post  WHERE sdt LIKE '%$sdt%'"; 
+       $query_seach="SELECT * FROM post  WHERE sdt LIKE '%$sdt%' ORDER BY id DESC"; 
        $result=mysqli_query($link, $query_seach);
        
    }

@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_SESSION['username']) && $_SESSION['username']){};
 include 'module/connect_sql.php';
-$count=10;
+$count=20;
 $query_seach="SELECT * FROM post";
 function local($danhmuc,$khuvuc,$loc,$trang,$search){
     return "index.php?danhmuc=$danhmuc&khuvuc=$khuvuc&loc=$loc&trang=$trang&search=$search";

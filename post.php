@@ -147,13 +147,13 @@
             <div class="form">
                 <div class="select">
             <div class="croll">
-                <a href="#">Trang chủ ></a>
-                <a href="#">Đăng tin</a>
+                <a href="index.php">Trang chủ ></a>
+                <a href="post.php">Đăng tin</a>
             </div>
             </div>
                 <form  class="form" method="POST" enctype="multipart/form-data">
                     <div class="add-image">
-                        <h4>THÊM HÌNH ẢNH (tối đa 4 hình)</h4>
+                        <h4>THÊM HÌNH ẢNH * (tối đa 4 hình)</h4>
                         <input id="input-image" type="file" name="file[]"  multiple=""><br/>
                         
                         <img id="image1" src="#"/>
@@ -181,7 +181,7 @@
                         <div class="text">Chọn khu vực</div>
                         <div class="menu-select">
                         <select name="danhmuc">
-                        <option value="tất cả">Tất cả</option>
+                        <option value="tất cả">chọn danh mục</option>
                         <option value="" disabled="disabled">---Điện tử---------</option>
                         <option value="điện thoại">điện thoại</option>
                         <option value="máy tính bảng">máy tính bảng</option>
@@ -210,11 +210,11 @@
                         </select>
                         </div>
                         <div class="text">Chọn chuyên mục</div>
-                        <input type="text" name="tieude" class="txt" size="32" value="" placeholder="Tiêu đề sản phẩm"/><br />
+                        <input type="text" name="tieude" class="txt" size="32" value="" placeholder="Tiêu đề sản phẩm*"/><br />
                         <?php form_error('tieude');?>
-                        <input type="text" name="diachi" class="txt" size="32" value="" placeholder="Địa chỉ giao dịch"/><br />
+                        <input type="text" name="diachi" class="txt" size="32" value="" placeholder="Địa chỉ giao dịch*"/><br />
                         <?php form_error('diachi');?>
-                        <input type="number" name="gia" class="txt" placeholder="giá sản phẩm ( vnđ )">
+                        <input type="number" name="gia" class="txt" placeholder="giá sản phẩm * ( vnđ )">
                         <?php form_error('gia');?>
                         <textarea name="chitiet" cols="66" rows="15" placeholder="Thêm chi tiết" value=""></textarea><br>
                         <input id="sub" type="submit" name="submit" value="ĐĂNG TIN"><br/>
