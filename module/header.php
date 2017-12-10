@@ -47,7 +47,7 @@
             </div>
             <div class="menu" style="float: right;">
                 <?php
-                if (isset($_SESSION['username']) && $_SESSION['username']){
+                if (isset($_SESSION['username']) && $_SESSION['sdt']){
                 ?>
                 <div class="menu-item" style=" color: blue; padding: 0px;">
                    

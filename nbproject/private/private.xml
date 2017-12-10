@@ -4,10 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/xampp/htdocs/webmuaban/index.php</file>
-            <file>file:/D:/xampp/htdocs/webmuaban/module/header.php</file>
-            <file>file:/D:/xampp/htdocs/webmuaban/profile.php</file>
-            <file>file:/D:/xampp/htdocs/webmuaban/detail.php</file>
-            <file>file:/D:/xampp/htdocs/webmuaban/css/css_index.css</file>
+            <file>file:/D:/xampp/htdocs/webmuaban/login.php</file>
+            <file>file:/D:/xampp/htdocs/webmuaban/post.php</file>
         </group>
     </open-files>
 </project-private>

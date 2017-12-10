@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION['username']) && $_SESSION['username']){};
+if (isset($_SESSION['username']) && $_SESSION['sdt']){};
 include 'module/connect_sql.php';
 $count=20;
 $query_seach="SELECT * FROM post";
