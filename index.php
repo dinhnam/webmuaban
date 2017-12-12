@@ -66,7 +66,8 @@ else{
     }
     }
 }
-
+$num_page=1;
+$trang=1;
 if($res=mysqli_query($link, $query_seach)){
     $num= mysqli_num_rows($res);
     if($num>0){
@@ -76,7 +77,7 @@ if($res=mysqli_query($link, $query_seach)){
     else{
         $num_page=1;
     }
-}
+
  $start_page=($trang-1)*$count;
  if($loc==""){
  $query= $query_seach."  ORDER BY id DESC"." limit $start_page , $count";
@@ -88,6 +89,7 @@ if($res=mysqli_query($link, $query_seach)){
      $query= $query_seach."  ORDER BY gia DESC"." limit $start_page , $count";
  }
  $result=mysqli_query($link, $query);
+}
 ?>
 <html>
     <head>
