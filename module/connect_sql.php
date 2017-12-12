@@ -5,5 +5,5 @@ $db=array(
     'password'=>'',
     'database'=>'webbanhang'
 );
-$link=  mysqli_connect('localhost', 'root','', 'webbanhang');
+$link=  mysqli_connect($db['server'], $db['user'],$db['password'], $db['database']);
 ?>
