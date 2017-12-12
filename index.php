@@ -182,8 +182,9 @@ if($res=mysqli_query($link, $query_seach)){
             if(mysqli_num_rows($result)>0){
             while($row= mysqli_fetch_assoc($result)){
             ?>
+            <div class="sp">
             <a href="detail.php?id=<?php echo $row['id']; ?>">
-                    <img src="images-upload/<?php echo $row['anh1'];?> " width="234px" height="234px"/>
+                    <img src="images-upload/<?php echo $row['anh1'];?> " width="230px" height="230px"/>
                     <div class="title">
                     <?php echo substr($row['tieude'],0,34);?><br/>
                     Giá: <?php echo substr($row['gia'],0,15);?>đ<br/>
@@ -191,6 +192,7 @@ if($res=mysqli_query($link, $query_seach)){
                     Từ: <?php echo substr($row['ngaydang'],0,22);?>
                     </div>
             </a>
+            </div>
             <?php
             }
             }
