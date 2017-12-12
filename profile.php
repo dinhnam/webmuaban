@@ -109,14 +109,7 @@
         <link href="css/css_index.css" rel="stylesheet" type="text/css"/>
         <link href="css/css_profile.css" rel="stylesheet" type="text/css"/>
         <script src="jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
-        <script>
-          $(document).ready( function(){//load body truoc
-          $(".menu-sub").hide();
-	  $(".menu").hover( function(){
-		$(this).find('div:first').next().slideToggle(200);
-	  });
-          });
-        </script>
+        <script src="script/script-profile.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="wrapper">
@@ -156,17 +149,18 @@
             if(mysqli_num_rows($result)>0){
             while($row= mysqli_fetch_assoc($result)){
             ?>
-            <div class="product">
+                <div class="sp">
+            <a class='xoa' href="profile.php?id=<?php echo $id_user; ?>&delete=<?php echo $row['id'];?>"> Xóa</a>
             <a href="detail.php?id=<?php echo $row['id']; ?>">
-                    <img src="images-upload/<?php echo $row['anh1'];?> " width="200px" height="200px"/>
+                    <img src="images-upload/<?php echo $row['anh1'];?> " width="230px" height="230px"/>
                     <div class="title">
                     <?php echo substr($row['tieude'],0,34);?><br/>
-                    Giá: <?php echo substr($row['gia'],0,15);?>đ<br/>
-                    <?php echo substr($row['diachi'],0,35);?><br/>
+                    Giá: <?php echo number_format($row['gia']);?>đ<br/>
+                    Đc: <?php echo substr($row['diachi'],0,35);?><br/>
                     Từ: <?php echo substr($row['ngaydang'],0,22);?>
                     </div>
             </a>
-                <a class='xoa' href="profile.php?id=<?php echo $id_user; ?>&delete=<?php echo $row['id'];?>"> Xóa</a>
+            
             </div>
             <?php
             }

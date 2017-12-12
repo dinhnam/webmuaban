@@ -3,22 +3,19 @@
     height: auto;
     float: left;
 }
-.product{
-    width: 200px;;
-    height: 280px;
-    font-size: 12px;
-    float: left;
-    border: 1px solid blue;
-    padding: 2px;
-}
-.product a{
+
+.sp a{
     text-decoration: none;
+    
 }
 .xoa{
     color: red;
     font-size: 14px;
-    margin-left: 80px;
-   
+    border: 1px solid blueviolet;
+    position:absolute;
+    background-color: #FFF;
+    z-index:1;
+    padding: 2px;
 }
 .xoa:hover{
     color: yellowgreen;

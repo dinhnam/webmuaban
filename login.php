@@ -114,14 +114,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
         <link href="css/css_index.css" rel="stylesheet" type="text/css"/>
         <link href="css/css_login.css" rel="stylesheet" type="text/css"/>
         <script src="jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
-        <script>
-          $(document).ready( function(){//load body truoc
-          $(".menu-sub").hide();
-	  $(".menu").hover( function(){
-		$(this).find('div:first').next().slideToggle(200);
-	  });
-          });
-        </script>
+        <script src="script/script-login.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="wrapper">
