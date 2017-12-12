@@ -187,8 +187,8 @@ if($res=mysqli_query($link, $query_seach)){
                     <img src="images-upload/<?php echo $row['anh1'];?> " width="230px" height="230px"/>
                     <div class="title">
                     <?php echo substr($row['tieude'],0,34);?><br/>
-                    Giá: <?php echo substr($row['gia'],0,15);?>đ<br/>
-                    <?php echo substr($row['diachi'],0,35);?><br/>
+                    Giá: <?php echo number_format($row['gia']);?>đ<br/>
+                    Đc: <?php echo substr($row['diachi'],0,35);?><br/>
                     Từ: <?php echo substr($row['ngaydang'],0,22);?>
                     </div>
             </a>

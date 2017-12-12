@@ -181,7 +181,7 @@
    
 }
 .list-product a:hover, .xtlab-ctmenu-item:focus {
-    border: 2px solid green;
+    border: 1px solid black;
     
 }
 .list-product a {
@@ -189,7 +189,7 @@
     height: 300px;
     color: #000;
     background-color: #FFF;
-    border: 1px solid black;
+    
     text-decoration: none;
     display: block;
     float: left;

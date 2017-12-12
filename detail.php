@@ -126,7 +126,7 @@ if( isset($_GET['id'])){
                         <?php echo $tieude; ?>
                     </li>
                     <li style="color: #9c3328;">
-                        <span>Giá bán: </span> <?php echo $gia." vnđ"; ?>
+                        <span>Giá bán: </span> <?php echo number_format($gia)." đ"; ?>
                     </li>
                     <li>
                         <span>Tên người bán: </span><?php echo $name; ?>
