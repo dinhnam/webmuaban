@@ -181,7 +181,7 @@
    
 }
 .list-product a:hover, .xtlab-ctmenu-item:focus {
-    border: 1px solid black;
+    border: 1px solid #f0f0f0;
     
 }
 .list-product a {
