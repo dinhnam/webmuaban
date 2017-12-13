@@ -66,8 +66,7 @@ else{
     }
     }
 }
-$num_page=1;
-$trang=1;
+
 if($res=mysqli_query($link, $query_seach)){
     $num= mysqli_num_rows($res);
     if($num>0){
