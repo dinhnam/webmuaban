@@ -187,9 +187,9 @@
 .list-product a {
     width: 231px;
     height: 300px;
-    color: #000;
+    color: #0000cc;
     background-color: #FFF;
-    
+    border: 2px solid #f1f1f1;
     text-decoration: none;
     display: block;
     float: left;
