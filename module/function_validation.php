@@ -1,7 +1,7 @@
 <?php
 
 function is_username($username) {
-    $parttern = "/^[A-Za-z0-9_\.]{6,32}$/";
+    $parttern = "/^[A-Za-z_\.]{3,32}$/";
     if (preg_match($parttern, $username))
         return true;
 }

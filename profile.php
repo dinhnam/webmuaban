@@ -1,6 +1,7 @@
 <?php
    session_start();
    include 'module/connect_sql.php';
+   include 'module/function_validation.php';
    function update_user($new_ten,$new_sdt,$new_matkhau,$id_user){
        global $link;
        global $error;
@@ -61,14 +62,21 @@
                $error['sdt']="số điện thoại đã có người đăng kí";
              }
              else{
+                 if(!is_sdt($_POST['sdt'])){
+                 $error['sdt']="số điện thoại không đúng định dạng";   
+                 }else{ 
                  $new_sdt=$_POST['sdt'];
-             }
+                 }
+               }
              }
              }
              else{
-                $new_sdt=$_POST['sdt']; 
+                
+                 $new_sdt=$_POST['sdt'];
+                 
              }
-            }
+             }
+            
         
 	    if(empty($_POST['pass'])){
 		$error['pass']="bạn cần nhập password";

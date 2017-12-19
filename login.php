@@ -80,7 +80,9 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 		$error['name_reg']="bạn cần nhập username";
 	    }
 	    else{
-               
+            if(!is_username($_POST['name_reg'])){
+                $error['name_reg']="tên không hợp lệ";
+            }else    
             $name_reg=$_POST['name_reg'];
             
 	    }
