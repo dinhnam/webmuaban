@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'module/connect_sql.php';
+include 'module/function_validation.php';
 function insert_user($ten,$sdt,$matkhau){
        global $link;
        global $error;
@@ -79,14 +80,20 @@ if($_SERVER['REQUEST_METHOD']=="POST"){
 		$error['name_reg']="bạn cần nhập username";
 	    }
 	    else{
+               
             $name_reg=$_POST['name_reg'];
+            
 	    }
         
             if(empty($_POST['sdt_reg'])){
                $error['sdt_reg']="bạn cần nhập số điện thoại";
 	    }
 	    else{
+            if(!is_sdt($_POST['sdt_reg'])){
+             $error['sdt_reg']="số điện thoại không đúng định dạng";   
+            }else{     
             $sdt_reg=$_POST['sdt_reg'];
+            }
 	    }
         
 	    if(empty($_POST['pass_reg'])){

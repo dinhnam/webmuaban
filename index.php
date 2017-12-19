@@ -172,7 +172,7 @@ if($res=mysqli_query($link, $query_seach)){
                     <div class="title">
                     <?php echo substr($row['tieude'],0,34);?><br/>
                     Giá: <?php echo number_format($row['gia']);?>đ<br/>
-                    Đc: <?php echo substr($row['diachi'],0,35);?><br/>
+                    <?php echo substr($row['diachi'],0,35);?><br/>
                     Từ: <?php echo substr($row['ngaydang'],0,22);?>
                     </div>
             </a>
